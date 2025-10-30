@@ -4,10 +4,12 @@
 import "../component-style/theme-toggle-student-exercise.css";
 
 // TODO for studerende: Importer useState fra React
+import { useState } from "react";
 
 export default function ThemeToggleStudentExercise() {
   // TODO for studerende: Opret state variabel for dark mode
   // Hint: const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Midlertidig værdi - skal erstattes med state
   // const isDarkMode = false;
@@ -16,14 +18,15 @@ export default function ThemeToggleStudentExercise() {
   const handleToggle = () => {
     console.log("Toggle knappen blev klikket!");
     // Hint: Toggle isDarkMode mellem true/false
+    setIsDarkMode(!isDarkMode);
   };
 
   // I denne opgave skal du ikke implementere conditional classes, det er NÆSTEN gjort for dig.
   // Når du har implementeret useState og handleToggle, skal du som det sidste skifter false ud med isDarkMode state variablen i alle 7 ternary operatorene i jsx'en.
   // Herefter vil du kunne skifte tema, ved at toggle switchen i UI'en.
   return (
-    <div className={`exercise-container ${false ? "dark" : ""}`}>
-      <div className={`app-card ${false ? "dark" : ""}`}>
+    <div className={`exercise-container ${isDarkMode ? "dark" : ""}`}>
+      <div className={`app-card ${isDarkMode ? "dark" : ""}`}>
         {/* Header */}
         <div className="app-header">
           <h1 className="exercise-title">Theme Toggle Øvelse</h1>
@@ -36,13 +39,13 @@ export default function ThemeToggleStudentExercise() {
         <div className="app-content">
           <div className="demo-section">
             <h2 className="demo-title">
-              <span className="toggle-icon">{false ? "🌙" : "☀️"}</span>
-              {false ? "Mørk Tema" : "Lys Tema"}
+              <span className="toggle-icon">{isDarkMode ? "🌙" : "☀️"}</span>
+              {isDarkMode ? "Mørk Tema" : "Lys Tema"}
             </h2>
             <p className="demo-text">
-              Dette er et eksempel på hvordan indholdet ser ud i det{" "}
-              {false ? "mørke" : "lyse"} tema. Alle farver, baggrunde og tekst
-              skulle skifte automatisk når du toggle mellem temaerne.
+              Dette er et eksempel på hvordan indholdet ser ud i det {isDarkMode ? "mørke" : "lyse"}{" "}
+              tema. Alle farver, baggrunde og tekst skulle skifte automatisk når du toggle mellem
+              temaerne.
             </p>
           </div>
         </div>
@@ -51,11 +54,11 @@ export default function ThemeToggleStudentExercise() {
         <div className="toggle-section">
           <div className="toggle-label">
             <span className="toggle-icon">🎨</span>
-            {false ? "Mørk Tema" : "Lys Tema"}
+            {isDarkMode ? "Mørk Tema" : "Lys Tema"}
           </div>
 
           <button
-            className={`toggle-switch ${false ? "active" : ""}`}
+            className={`toggle-switch ${isDarkMode ? "active" : ""}`}
             onClick={handleToggle}
             aria-label="Toggle dark mode"
           />
