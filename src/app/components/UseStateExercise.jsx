@@ -5,13 +5,15 @@ import "../component-style/useState-exercise.css";
 
 // TODO for studerende: Importer useState fra React
 // import { useState } from 'react'
+import { useState } from "react";
 
 export default function UseStateExercise() {
   // TODO for studerende: Opret en state variabel til at gemme teksten
   // Hint: const [tekst, setTekst] = useState('Velkommen!')
+  const [tekst, setTekst] = useState("Velkommen!");
 
   // Velkommen! Er den midlertidige værdi, der skal erstattes med state!
-  const tekst = "Velkommen!";
+  // const tekst = "Velkommen!";
 
   return (
     <div className="exercise-container">
@@ -42,6 +44,8 @@ export default function UseStateExercise() {
               // TODO for studerende: Tilføj value og onChange props
               // value={tekst}
               // onChange={(e) => setTekst(e.target.value)}
+              value={tekst}
+              onChange={(e) => setTekst(e.target.value)}
             />
           </div>
 
